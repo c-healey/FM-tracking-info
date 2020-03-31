@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Barlow|Barlow+Condensed:400,700&display=swap");
+:root {
+  --very-dark-gray: hsl(230, 29%, 20%);
+  --dark-grayish-blue: hsl(230, 11%, 40%);
+  --grayish-blue: hsl(231, 7%, 65%);
+  --light-grayish-blue: hsl(207, 33%, 95%);
+  --primary: hsl(0, 100%, 68%);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
+
+  @include respond(phone) {
+    font-size: 37.5%; //1rem  = 6px; 6/16 = 37.5%
+  }
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem  = 9px; 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1rem  = 8px; 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem  = 12px; 12/16 = 75%
+  }
+}
+
+body {
+  background-color: white;
+  color: var(--very-dark-gray);
+  font-family: "Barlow", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin: 0;
+  overflow-x: hidden;
+  @include respond(tab-port) {
+    box-sizing: border-box;
+    padding: 0;
+  }
+}
+body::after {
+  background-color: var(--light-grayish-blue);
+  border-bottom-left-radius: 50px;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30rem;
+  width: 50vw;
+  z-index: -1;
+}
+h1,
+h2,
+h3,
+h4,
+nav,
+.btn {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+}
+h1,
+nav {
+  font-weight: 700;
+}
+h3,
+nav {
+  font-size: 1.5rem;
+}
+h3 {
+  color: var(--dark-grayish-blue);
+}
+p {
+  margin: 2rem 0;
+}
+.section-title {
+  padding: 2rem 0;
+}
+.background--gray {
+  background-color: var(--light-grayish-blue);
+}
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-content: center;
+}
+.hero-container {
+  margin-top: 6rem;
+}
+.hero--1 {
+  padding-left: 6rem;
+  max-width: 45vw;
+  h3,
+  h1,
+  button {
+    text-transform: uppercase;
+  }
+
+  .pill {
+    background-color: var(--very-dark-gray);
+    color: var(--light-grayish-blue);
+    border-radius: 50px;
+    padding: 0.25rem 1.25rem;
+  }
+  .btn {
+    color: white;
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 2.5rem;
+    padding: 1.5rem 4rem;
+    font-weight: 700;
+  }
+}
+.hero--2 {
+  max-width: 48vw;
+}
+
+@include respond(phone) {
+  body::after {
+    height: 85rem;
+  }
+  .hero-container {
+    flex-direction: column-reverse;
+  }
+  .hero--1 {
+    margin-top: 20rem;
+    align-self: center;
+    max-width: 100vw;
+    margin-bottom: 8rem;
+  }
+}
+
+// .hero--2 {
+//   background-color: var(--light-grayish-blue);
+//   border-bottom-left-radius: 25px;
+//   max-width: 50vw;
+//   max-height: 220px;
+
+// }
